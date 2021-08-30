@@ -12,7 +12,7 @@ public class StudentMain {
 		System.out.print("기능 입력");
 		int num=input.nextInt();
 		switch(num) {
-		case 1:ndto.display(); break;	//김도윤
+		case 1:ndto.display(); break;	//김도윤 회원관리
 		case 2:break;
 		case 3:break;
 		case 4:break;
