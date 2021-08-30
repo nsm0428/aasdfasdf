@@ -3,11 +3,15 @@ package Student_ArrayList;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import raina.Member_Array;
+
 public class StudentMain {
 
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
 		ArrayList<DTO> list=new ArrayList<DTO>();
+		Member_Array mma = new Member_Array();
+		
 		String name,Num;
 		while(true) {
 		System.out.print("기능 입력");
@@ -29,7 +33,9 @@ public class StudentMain {
 				System.out.println("가입이 완료 되었습니다");
 			}
 			break;
-		case 2:break;
+		case 2: 
+			mma.display();       //김나현 
+			break;   
 		case 3:break;
 		case 4:break;
 		case 5:break;

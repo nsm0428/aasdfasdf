@@ -10,7 +10,45 @@ public class Member_Array {
 	ArrayList<Member_Dto> arr = new ArrayList<Member_Dto>();
 	int total = 0;
 
-	//학생 등록하기 
+	public void display() {
+		Member_Array ma = new Member_Array();
+//		Member_Hash mh = new Member_Hash();
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			System.out.println("1. 학생 등록  2. 전체 학생 정보  3. 학생 정보 검색  4. 학생 정보 수정  5. 학생 정보 삭제  6. 종료 ");
+			System.out.print(">>>");
+			int num = sc.nextInt();
+
+			switch (num) {
+			case 1:
+//				mh.resgister();
+				ma.resgister();
+				break;
+			case 2:
+//				mh.info();
+				ma.info();
+				break;
+			case 3:
+//				mh.search();
+				ma.search();
+				break;
+			case 4:
+//				mh.modify();
+				ma.modify();
+				break;
+			case 5:
+//				mh.delete();
+				ma.delete();
+				break;
+			case 6:
+				System.out.println("프로그램을 종료합니다. ");
+				System.exit(0);
+			}
+		}
+	}
+
+	// 학생 등록하기
 	public void resgister() {
 
 		Member_Dto dto = new Member_Dto();
@@ -26,7 +64,7 @@ public class Member_Array {
 
 	}
 
-	//전체 학생 정보 
+	// 전체 학생 정보
 	public void info() {
 
 		for (int i = 0; i < arr.size(); i++) {
@@ -38,7 +76,7 @@ public class Member_Array {
 		}
 	}
 
-	//학생 정보 검색 
+	// 학생 정보 검색
 	public void search() {
 		System.out.println("검색할 학번을 입력하세요 : ");
 		String sNum = sc.next();
@@ -48,14 +86,13 @@ public class Member_Array {
 			if (sNum.equals(d.stuNum)) {
 				System.out.println("학생 이름 : " + arr.get(i).getName());
 				System.out.println("학생 이메일 : " + arr.get(i).getEmail());
-			} else if (!sNum.equals(d.stuNum) && i >= arr.size()) {
-				System.out.println("존재하지 않는 학번입니다.");
-			}			
+				break;
+			} 
 		}
 		System.out.println("------------------------------");
 	}
 
-	//학생 정보 수정 
+	// 학생 정보 수정
 	public void modify() {
 
 		System.out.println("수정할 학번을 입력하세요 : ");
@@ -70,13 +107,11 @@ public class Member_Array {
 				arr.get(i).setEmail(sc.next());
 				System.out.println(" 수정이 완료되었습니다. ");
 				break;
-			} else if (!sNum.equals(d.stuNum) && i >= arr.size()) {
-				System.out.println("존재하지 않는 학번입니다.");
-			}
+			} 
 		}
 	}
 
-	//학생 정보 삭제 
+	// 학생 정보 삭제
 	public void delete() {
 		System.out.println("삭제할 학번을 입력하세요 : ");
 		String sNum = sc.next();
@@ -88,8 +123,7 @@ public class Member_Array {
 				System.out.println("이메일  : " + dd.getEmail());
 				arr.remove(i);
 				System.out.println(" ===>> 해당 정보가 삭제되었습니다.");
-			} else if (!sNum.equals(dd.stuNum) && i >= arr.size()) {
-				System.out.println("존재하지 않는 학번입니다.");
+				break;			
 			}
 		}
 	}
