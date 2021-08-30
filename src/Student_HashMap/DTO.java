@@ -1,6 +1,7 @@
 package Student_HashMap;
 
 public class DTO {
+
 	private String name;
 	private int Num;
 	public String getName() {
@@ -15,4 +16,5 @@ public class DTO {
 	public void setNum(int num) {
 		Num = num;
 	}
+
 }
