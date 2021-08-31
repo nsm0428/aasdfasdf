@@ -17,24 +17,24 @@ public class Main {
 			
 			switch(num) {			
 			case 1 : 
-				mh.resgister();
-//				ma.resgister();
+//				mh.resgister();
+				ma.resgister();
 				break;
 			case 2: 
-				mh.info();
-//				ma.info();
+//				mh.info();
+				ma.info();
 				break;
 			case 3: 
-				mh.search();
-//				ma.search();
+//				mh.search();
+				ma.search();
 				break;
 			case 4: 
-				mh.modify();
-//				ma.modify();
+//				mh.modify();
+				ma.modify();
 				break;
 			case 5 : 
-				mh.delete();
-//				ma.delete();
+//				mh.delete();
+				ma.delete();
 				break;
 			case 6 : 
 				System.out.println("프로그램을 종료합니다. ");

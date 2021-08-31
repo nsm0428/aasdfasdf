@@ -42,16 +42,20 @@ public class Member_Array {
 	public void search() {
 		System.out.println("검색할 학번을 입력하세요 : ");
 		String sNum = sc.next();
-
-		for (int i = 0; i < arr.size(); i++) {
+		int i = 0;
+		
+		for ( i = 0; i < arr.size(); i++) {
 			Member_Dto d = arr.get(i);
 			if (sNum.equals(d.stuNum)) {
 				System.out.println("학생 이름 : " + arr.get(i).getName());
 				System.out.println("학생 이메일 : " + arr.get(i).getEmail());
-			} else if (!sNum.equals(d.stuNum) && i >= arr.size()) {
-				System.out.println("존재하지 않는 학번입니다.");
-			}			
+				break;
+			} 
 		}
+		if(i == arr.size()) {
+			System.out.println("해당 학번이 존재하지 않음");			
+		}
+		
 		System.out.println("------------------------------");
 	}
 
@@ -60,8 +64,8 @@ public class Member_Array {
 
 		System.out.println("수정할 학번을 입력하세요 : ");
 		String sNum = sc.next();
-
-		for (int i = 0; i < arr.size(); i++) {
+		int i = 0;
+		for ( i = 0; i < arr.size(); i++) {
 			Member_Dto d = arr.get(i);
 			if (sNum.equals(d.stuNum)) {
 				System.out.println("수정할 이름 : ");
@@ -70,9 +74,10 @@ public class Member_Array {
 				arr.get(i).setEmail(sc.next());
 				System.out.println(" 수정이 완료되었습니다. ");
 				break;
-			} else if (!sNum.equals(d.stuNum) && i >= arr.size()) {
-				System.out.println("존재하지 않는 학번입니다.");
-			}
+			} 			
+		}
+		if(i == arr.size()) {
+			System.out.println("해당 학번이 존재하지 않음");				
 		}
 	}
 
@@ -80,17 +85,19 @@ public class Member_Array {
 	public void delete() {
 		System.out.println("삭제할 학번을 입력하세요 : ");
 		String sNum = sc.next();
-
-		for (int i = 0; i < arr.size(); i++) {
+		int i = 0;
+		for ( i = 0; i < arr.size(); i++) {
 			Member_Dto dd = arr.get(i);
 			if (sNum.equals(dd.stuNum)) {
 				System.out.println("이름  : " + dd.getName());
 				System.out.println("이메일  : " + dd.getEmail());
 				arr.remove(i);
 				System.out.println(" ===>> 해당 정보가 삭제되었습니다.");
-			} else if (!sNum.equals(dd.stuNum) && i >= arr.size()) {
-				System.out.println("존재하지 않는 학번입니다.");
-			}
+				break;
+			} 			
+		}
+		if(i == arr.size()) {
+			System.out.println("해당 학번이 존재하지 않음");				
 		}
 	}
 
