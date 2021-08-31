@@ -1,4 +1,4 @@
-package Student_ArrayList;
+package soomin_ArrayList;
 
 public class DTO {
 	private String name;

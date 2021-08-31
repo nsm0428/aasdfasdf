@@ -1,10 +1,11 @@
-package Student_ArrayList;
+package soomin_ArrayList;
 
 import java.util.*;
 
 public class StudentMain {
 	static Scanner input = new Scanner(System.in);
 	static ArrayList<DTO> list = new ArrayList<DTO>();
+	static int countStd;
 
 	public static void main(String[] args) {
 		
@@ -15,18 +16,15 @@ public class StudentMain {
 			switch(num) {
 			case 1:
 				registerStd();
-				for(int i = 0; i<list.size(); i++) {
-					System.out.println(list.get(i).getName());
-				}
-//				System.out.println(list.get(0).getName());
-//				System.out.println(list.get(0).getStdNum());
 				break;
 			case 2:
 				searchStd();
 				break;
 			case 3:
+				numberStd();
 				break;
 			case 4:
+				deleteStd();
 				break;
 			case 5:
 				System.exit(0);
@@ -47,6 +45,7 @@ public class StudentMain {
 		dto.setStdNum(StdNum);
 		
 		list.add(dto);
+		countStd++;
 		
 		System.out.println("등록이 완료되었습니다!");
 	}
@@ -67,12 +66,10 @@ public class StudentMain {
 			
 			for(int i = 0; i<list.size(); i++) {
 				list.get(i).getName();
-				if(name == list.get(i).getName()) {
+				if(name.equals(list.get(i).getName())) {
 					System.out.println("검색하신 이름 : " + list.get(i).getName());
 					System.out.println("검색하신 학번 : " + list.get(i).getStdNum());
 					break;
-				}else {
-					System.out.println("존재하지 않는 학생입니다.");
 				}
 			}
 		}else if(num == 2) {
@@ -83,7 +80,7 @@ public class StudentMain {
 			
 			for(int i = 0; i<list.size(); i++) {
 				list.get(i).getName();
-				if(StdNum == list.get(i).getStdNum()) {
+				if(StdNum.equals(list.get(i).getStdNum())) {
 					System.out.println("검색하신 이름 : " + list.get(i).getName());
 					System.out.println("검색하신 학번 : " + list.get(i).getStdNum());
 				}
@@ -95,12 +92,32 @@ public class StudentMain {
 		
 	}
 	
-	public void numberStd() {
-		
+	public static void numberStd() {
+		System.out.println("등록된 학생 수는 " + countStd + "명 입니다.");
 	}
 	
-	public void deleteStd() {
+	public static void deleteStd() {
+		System.out.println("정말로 삭제기능을 실행하시겠습니까?");
+		System.out.println("1. 네   2. 아니오");
+		int num = input.nextInt();
 		
+		if(num == 1) {
+			System.out.print("삭제할 학생의 학번을 입력해주세요 : ");
+			String StdNum = input.next();
+			
+			for(int i = 0; i<list.size(); i++) {
+				if(StdNum.equals(list.get(i).getStdNum())) {
+					list.remove(i);
+					System.out.println("성공적으로 삭제되었습니다!");
+					countStd--;
+					break;
+				}
+			}
+		}else if(num == 2) {
+			System.out.println("메인메뉴로 돌아갑니다.");
+		}else {
+			System.out.println("없는 기능입니다.");
+		}
 	}
 	
 }
